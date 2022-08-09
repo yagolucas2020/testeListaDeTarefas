@@ -1,0 +1,123 @@
+string connectionString = @"DESKTOP-PUVBPL5";
+
+
+public frmCadastroLista()
+{
+    InitializeComponent();
+}
+
+private void frmCadastroLista_Load(Lista sender, EventArgs e)
+{
+    tsbNovo.Enabled = True;
+    tsbSalvar.Enabled = false;
+    tsbCancelar.Enabled = false;
+    tsbExcluir.Enabled = True;
+    tsbBuscar.Enabled = false;
+}
+
+private void tsbNovo_Click(object sender, EventArgs e)
+{
+    tsbNovo.Enabled = false;
+    tsbSalvar.Enabled = true;
+    tsbCancelar.Enabled = true;
+    tsbExcluir.Enabled = false;
+    tstId.Enabled = false;
+    tsbBuscar.Enabled = false;
+    novo = true;
+
+}
+
+private void tsbSalvar_Click(object sender, EventArgs e)
+{
+    if (novo)
+    {
+      string sql = "INSERT LISTA DE TAREFA" + handleAddTodo;
+
+        SqlConnection con = new SqlConnection(connectionString);
+        SqlCommand cmd = new SqlCommand(sql, con);
+        cmd.CommandType = CommandType.Text;
+        con.Open();
+        try
+        {
+            int i = cmd.ExecuteNonQuery();
+            if (i > 0)
+                MessageBox.Show("Cadastro realizado com sucesso!");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Erro: " + ex.ToString());
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+    
+    }
+
+
+{
+
+tsbNovo.Enabled = true;
+    tsbSalvar.Enabled = false;
+    tsbCancelar.Enabled = false;
+    tsbExcluir.Enabled = false;
+    tstId.Enabled = true;
+    tsbBuscar.Enabled = true;
+}
+
+private void tsbCancelar_Click(object sender, EventArgs e)
+{
+    tsbNovo.Enabled = true;
+    tsbSalvar.Enabled = false;
+    tsbCancelar.Enabled = false;
+    tsbExcluir.Enabled = false;
+    tstId.Enabled = true;
+    tsbBuscar.Enabled = true;
+
+}
+
+private void tsbExcluir_Click(object sender, EventArgs e)
+{
+
+    string sql = "DELETE FROM LISTA=" + handleDeleteTodo;
+
+    SqlConnection con = new SqlConnection(connectionString);
+    SqlCommand cmd = new SqlCommand(sql, con);
+    cmd.CommandType = CommandType.Text;
+    con.Open();
+
+    try
+    {
+        int i = cmd.ExecuteNonQuery();
+        if (i > 0)
+            MessageBox.Show("Registro excluído com sucesso!");
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("Erro: " + ex.ToString());
+    }
+    finally
+    {
+        con.Close();
+    }
+
+    tsbNovo.Enabled = true;
+    tsbSalvar.Enabled = false;
+    tsbCancelar.Enabled = false;
+    tsbExcluir.Enabled = false;
+    tstId.Enabled = true;
+    tsbBuscar.Enabled = true;
+
+}
+    
+
+    reader = cmd.ExecuteReader();
+    
+
+    axios.get('http://127.0.0.1:5500/index.html')
+
+
+
+
+
